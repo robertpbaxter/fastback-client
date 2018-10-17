@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { AuthContext } from "../auth/AuthContext";
+import APIURL from "../helpers/environment";
 
 class StudentName extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class StudentName extends Component {
   componentDidMount = () => this.fetchStudentName();
 
   fetchStudentName = () => {
-    fetch(`/api/user/${this.props.submission.studentId}`, {
+    fetch(`${APIURL}/api/user/${this.props.submission.studentId}`, {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",

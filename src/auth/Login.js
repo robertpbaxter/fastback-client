@@ -10,6 +10,7 @@ import {
   Col
 } from "reactstrap";
 import { AuthContext } from "./AuthContext";
+import APIURL from "../helpers/environment";
 
 class Login extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class Login extends Component {
     e.preventDefault();
     const alert = document.getElementById("alert");
 
-    fetch("/api/user/login", {
+    fetch(`${APIURL}/api/user/login`, {
       method: "POST",
       body: JSON.stringify({ user: this.state }),
       headers: new Headers({

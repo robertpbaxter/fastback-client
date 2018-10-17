@@ -4,6 +4,7 @@ import { AuthContext } from "../auth/AuthContext";
 import UserTable from "./UserTable";
 import UserEdit from "./UserEdit";
 import "./User.css";
+import APIURL from "./helpers/environment";
 
 class UserIndex extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class UserIndex extends Component {
   componentDidMount = () => this.fetchUsers();
 
   fetchUsers = () => {
-    fetch("/api/user", {
+    fetch(`${APIURL}/api/user`, {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -31,7 +32,7 @@ class UserIndex extends Component {
 
   // DELETING USERS WITHOUT DELETING ASSIGNMENTS WILL CURRENTLY CRASH THE GRADING TABLE
   // deleteUser = e => {
-  //   fetch(`/api/user/${e.target.id}`, {
+  //   fetch(`/${APIURL}/api/user/${e.target.id}`, {
   //     method: "DELETE",
   //     body: JSON.stringify({ user: { id: e.target.id } }),
   //     headers: new Headers({
@@ -43,7 +44,7 @@ class UserIndex extends Component {
 
   editUser = (e, user) => {
     console.log(user);
-    fetch(`/api/user/${user.id}`, {
+    fetch(`${APIURL}/api/user/${user.id}`, {
       method: "PUT",
       body: JSON.stringify({ user: user }),
       headers: new Headers({

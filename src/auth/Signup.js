@@ -11,6 +11,7 @@ import {
 } from "reactstrap";
 import validator from "validator";
 import { AuthContext } from "./AuthContext";
+import APIURL from "../helpers/environment";
 
 class Signup extends Component {
   constructor(props) {
@@ -58,7 +59,7 @@ class Signup extends Component {
           }
         };
 
-        fetch("/api/user/signup", {
+        fetch(`${APIURL}/api/user/signup`, {
           method: "POST",
           body: JSON.stringify(newUser), //server must expect an object with key value 'instructor'
           headers: new Headers({

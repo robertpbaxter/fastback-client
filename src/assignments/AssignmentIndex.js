@@ -7,6 +7,7 @@ import AssignmentTable from "./AssignmentTable";
 import AssignmentCreate from "./AssignmentCreate";
 import AssignmentEdit from "./AssignmentEdit";
 import "./Assignment.css";
+import APIURL from "../helpers/environment";
 
 class AssignmentIndex extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class AssignmentIndex extends Component {
   componentDidMount = () => this.fetchAssignments();
 
   fetchAssignments = () => {
-    fetch("/api/assignment", {
+    fetch(`${APIURL}/api/assignment`, {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -41,7 +42,7 @@ class AssignmentIndex extends Component {
         {
           label: "Yes, delete.",
           onClick: () =>
-            fetch(`/api/assignment/${assignmentId}`, {
+            fetch(`${APIURL}/api/assignment/${assignmentId}`, {
               method: "DELETE",
               headers: new Headers({
                 "Content-Type": "application/json",
@@ -58,7 +59,7 @@ class AssignmentIndex extends Component {
   };
 
   editAssignment = (e, assignment) => {
-    fetch(`/api/assignment/${assignment.id}`, {
+    fetch(`${APIURL}/api/assignment/${assignment.id}`, {
       method: "PUT",
       body: JSON.stringify({ assignment: assignment }),
       headers: new Headers({

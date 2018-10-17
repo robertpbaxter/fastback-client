@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Table, Button, Row, Col } from "reactstrap";
 import GradingModal from "../grading/GradingModal";
 import { AuthContext } from "../auth/AuthContext";
+import APIURL from "../helpers/environment";
 
 class AssignmentTable extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class AssignmentTable extends Component {
 
   fetchSubmissions = e => {
     this.setState({ gradingWindow: true, assignmentIdToGrade: e.target.id });
-    fetch(`/api/submission/grading/${e.target.id}`, {
+    fetch(`${APIURL}/api/submission/grading/${e.target.id}`, {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",

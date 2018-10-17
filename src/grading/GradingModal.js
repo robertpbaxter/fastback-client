@@ -4,6 +4,7 @@ import { AuthContext } from "../auth/AuthContext";
 import StudentName from "./StudentName";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Grading.css";
+import APIURL from "../helpers/environment";
 
 class GradingModal extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class GradingModal extends Component {
   componentDidMount = () => this.fetchAssignmentToGrade();
 
   fetchAssignmentToGrade = () => {
-    fetch(`/api/assignment/item/${this.props.assignmentIdToGrade}`, {
+    fetch(`${APIURL}/api/assignment/item/${this.props.assignmentIdToGrade}`, {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -46,7 +47,7 @@ class GradingModal extends Component {
             grade: ""
           }
         })
-      : fetch(`/api/submission/item/${e.target.value}`, {
+      : fetch(`${APIURL}/api/submission/item/${e.target.value}`, {
           method: "GET",
           headers: new Headers({
             "Content-Type": "application/json",
@@ -67,7 +68,7 @@ class GradingModal extends Component {
     console.log(e.target.value);
     this.state.submissionToGrade.id === undefined
       ? alert("Select an assignment first")
-      : fetch(`/api/submission/${this.state.submissionToGrade.id}`, {
+      : fetch(`${APIURL}/api/submission/${this.state.submissionToGrade.id}`, {
           method: "PUT",
           body: JSON.stringify({ submission: { grade: this.state.grade } }),
           headers: new Headers({

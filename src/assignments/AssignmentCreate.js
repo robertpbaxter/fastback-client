@@ -10,6 +10,7 @@ import {
   Col
 } from "reactstrap";
 import { AuthContext } from "../auth/AuthContext";
+import APIURL from "../helpers/environment";
 
 class AssignmentCreate extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class AssignmentCreate extends Component {
     e.preventDefault();
     const alert = document.getElementById("alert");
 
-    fetch("/api/assignment/new", {
+    fetch(`${APIURL}/api/assignment/new`, {
       method: "POST",
       body: JSON.stringify({ assignment: this.state }),
       headers: new Headers({

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col, Form, Label, Input, Button } from "reactstrap";
 import { AuthContext } from "../auth/AuthContext";
 import "./Student.css";
+import APIURL from "../helpers/environment";
 
 class StudentIndex extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class StudentIndex extends Component {
   };
 
   fetchInstructors = () => {
-    fetch("/api/user/instructors", {
+    fetch(`${APIURL}/api/user/instructors`, {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -36,7 +37,7 @@ class StudentIndex extends Component {
   displayAssignments = e => {
     //take the selected instructor's id and fetch all assignments
     this.setState({ instructorId: e.target.value });
-    fetch(`/api/assignment/${e.target.value}`, {
+    fetch(`${APIURL}/api/assignment/${e.target.value}`, {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -49,7 +50,7 @@ class StudentIndex extends Component {
 
   displayInstructions = e => {
     if (e.target.value !== "unselected") {
-      fetch(`api/assignment/item/${e.target.value}`, {
+      fetch(`${APIURL}/api/assignment/item/${e.target.value}`, {
         method: "GET",
         headers: new Headers({
           "Content-Type": "application/json",
@@ -65,13 +66,16 @@ class StudentIndex extends Component {
   };
 
   fetchSubmission = assignmentId => {
-    fetch(`/api/submission/${this.state.instructorId}/${assignmentId}`, {
-      method: "GET",
-      headers: new Headers({
-        "Content-Type": "application/json",
-        Authorization: this.props.auth.sessionToken
-      })
-    })
+    fetch(
+      `${APIURL}/api/submission/${this.state.instructorId}/${assignmentId}`,
+      {
+        method: "GET",
+        headers: new Headers({
+          "Content-Type": "application/json",
+          Authorization: this.props.auth.sessionToken
+        })
+      }
+    )
       .then(res => res.json())
       .then(
         submissionData =>
@@ -86,7 +90,7 @@ class StudentIndex extends Component {
   };
 
   createSubmission = assignmentId => {
-    fetch("/api/submission", {
+    fetch(`${APIURL}/api/submission`, {
       method: "POST",
       body: JSON.stringify({
         submission: {
@@ -111,7 +115,7 @@ class StudentIndex extends Component {
   };
 
   updateSubmission = () => {
-    fetch(`/api/submission/${this.state.submission.id}`, {
+    fetch(`${APIURL}/api/submission/${this.state.submission.id}`, {
       method: "PUT",
       body: JSON.stringify({
         submission: {
