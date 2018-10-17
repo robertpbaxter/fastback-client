@@ -4,7 +4,7 @@ import { AuthContext } from "../auth/AuthContext";
 import UserTable from "./UserTable";
 import UserEdit from "./UserEdit";
 import "./User.css";
-import APIURL from "./helpers/environment";
+import APIURL from "../helpers/environment";
 
 class UserIndex extends Component {
   constructor(props) {

@@ -22,6 +22,7 @@ class AssignmentIndex extends Component {
   componentDidMount = () => this.fetchAssignments();
 
   fetchAssignments = () => {
+    // console.log(APIURL);
     fetch(`${APIURL}/api/assignment`, {
       method: "GET",
       headers: new Headers({
@@ -34,7 +35,7 @@ class AssignmentIndex extends Component {
   };
 
   deleteAssignment = (e, assignmentId) => {
-    console.log(assignmentId);
+    // console.log(assignmentId);
     confirmAlert({
       title: "Are you sure you want to delete this assignment?",
       message: "All submissions will be lost.",

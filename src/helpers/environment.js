@@ -6,4 +6,9 @@ switch (window.location.hostname) {
     break;
   case "https://fastback-mobile-client.herokuapp.com/":
     APIURL = "https://fastback-mobile-server.herokuapp.com/";
+    break;
+  default:
+    console.log("Error in environment.js");
 }
+
+export default APIURL;

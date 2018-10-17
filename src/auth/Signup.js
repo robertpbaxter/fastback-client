@@ -9,7 +9,6 @@ import {
   Row,
   Col
 } from "reactstrap";
-import validator from "validator";
 import { AuthContext } from "./AuthContext";
 import APIURL from "../helpers/environment";
 
@@ -39,9 +38,6 @@ class Signup extends Component {
     let lastName = this.state.lastName.trim();
 
     switch (true) {
-      case !validator.isEmail(email):
-        alert.innerText = `'${email}' is not a valid e-mail`;
-        break;
       case this.state.password.length < 5:
         alert.innerText = `Your password must contain 5 or more characters.`;
         break;
@@ -116,7 +112,7 @@ class Signup extends Component {
                 <Label for="email">Email</Label>
                 <Input
                   id="email"
-                  type="text"
+                  type="email"
                   name="email"
                   maxLength="255"
                   placeholder="enter email"
