@@ -31,10 +31,17 @@ class Login extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const alert = document.getElementById("alert");
+    let email = this.state.email.toLowerCase();
+    let password = this.state.password.trim();
 
     fetch(`${APIURL}/api/user/login`, {
       method: "POST",
-      body: JSON.stringify({ user: this.state }),
+      body: JSON.stringify({
+        user: {
+          email: email,
+          password: password
+        }
+      }),
       headers: new Headers({
         "Content-Type": "application/json"
       })

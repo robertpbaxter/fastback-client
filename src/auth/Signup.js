@@ -35,7 +35,7 @@ class Signup extends Component {
     e.preventDefault();
 
     const alert = document.getElementById("alert");
-    let email = this.state.email.trim();
+    let email = this.state.email.trim().toLowerCase();
     let password = this.state.password.trim();
     let confirmPassword = this.state.confirmPassword.trim();
     let firstName = this.state.firstName.trim();
