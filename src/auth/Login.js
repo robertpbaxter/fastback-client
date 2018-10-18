@@ -75,7 +75,7 @@ class Login extends Component {
                 <Label for="email">Email</Label>
                 <Input
                   id="li_email"
-                  type="text"
+                  type="email"
                   name="email"
                   maxLength="255"
                   placeholder="enter email"

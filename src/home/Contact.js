@@ -1,9 +1,13 @@
 import React from "react";
 import { Modal, Button, Form, Label, Input, Row, Col } from "reactstrap";
 import "../App.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Contact = props => (
-  <Modal isOpen={true} size="md" className="text-center" id="contact">
+  <Modal isOpen={true} size="md" id="contact">
+    <Button onClick={() => props.cancel()} id="closeSupport">
+      <FontAwesomeIcon icon="times" />
+    </Button>
     <Form
       css="max-width: 500px;"
       action="//formspree.io/roer.baxter@gmail.com"
@@ -30,6 +34,7 @@ const Contact = props => (
             type="email"
             placeholder="your email"
             name="email"
+            required
           />
         </Col>
       </Row>
@@ -42,17 +47,18 @@ const Contact = props => (
             rows="5"
             placeholder="your message"
             name="message"
+            required
           />
         </Col>
       </Row>
       <Input
         type="hidden"
         name="_subject"
-        value="Message via http://domain.com"
+        value="Message via Fastback support"
+        required
       />
       <div className="text-center">
         <Button type="submit">Submit</Button>{" "}
-        <Button onClick={() => props.cancel()}>Cancel</Button>
       </div>
     </Form>
   </Modal>

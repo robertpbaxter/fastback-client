@@ -49,8 +49,13 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
-.react-confirm-alert-body,
+.react-confirm-alert-body {
+  text-align: center;
+  margin: auto;
+}
+
 .react-confirm-alert-body button {
   text-align: center;
   margin: auto;
+  font-size: 1.5em;
 }
