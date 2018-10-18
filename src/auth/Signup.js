@@ -25,7 +25,11 @@ class Signup extends Component {
     };
   }
 
-  handleChange = e => this.setState({ [e.target.name]: e.target.value });
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+    const alert = document.getElementById("alert");
+    alert.innerText = "";
+  };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -64,14 +68,18 @@ class Signup extends Component {
         })
           .then(res => res.json())
           .then(data => {
-            if (data.error) {
+            if (!data.sessionToken) {
               // I need to throw an rejection error when the username and password fail to match
               alert.innerText = "Username or password invalid";
             } else {
               this.props.auth.setToken(data.sessionToken);
               this.props.auth.setPermission(data.user.permission);
             }
-          });
+          })
+          .catch(
+            err =>
+              (alert.innerText = `An error has occurred. Please try a different e-mail or contact the system admin for support.`)
+          );
     }
   };
 

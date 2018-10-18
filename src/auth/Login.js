@@ -22,7 +22,11 @@ class Login extends Component {
     };
   }
 
-  handleChange = e => this.setState({ [e.target.name]: e.target.value.trim() });
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value.trim() });
+    const alert = document.getElementById("alert");
+    alert.innerText = "";
+  };
 
   handleSubmit = e => {
     e.preventDefault();
