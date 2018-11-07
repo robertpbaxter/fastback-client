@@ -6,17 +6,29 @@ View the deployed application (in its current state) at <a href="https://fastbac
 
 Back-end repository: <a href="https://github.com/robertpbaxter/fastback-server">https://github.com/robertpbaxter/fastback-server</a>
 
-- Sample student credentials:
+# Features:
+
+- Single page app format with a central switch statement that renders one of four possible interfaces:
+
+  - Public: A login/signup interface
+  - Student: A list of assignments (by instructor) with inputs for submitting responses and a grade value if (assigned)
+  - Instructions: A table of assignments (create, edit, delete) with modal for fetching student submissions and assigning grades
+  - Admins: A list of all users for assigning upgrading user credentials (for assigning new instructors) or deleting users
+
+- Authentication required for all queries to the back end (JWT credentials circulated throughout components by way of Context)
+
+- Reusable component for substituting foreign keys with data (e.g. showing first and last names associated with assignments or submissions)
+
+* Sample student credentials:
 
   - email: `student@student.com`
   - password: `student`
 
-- Sample instructor credentials:
+* Sample instructor credentials:
+
   - email: `instructor@instructor.com`
   - password: `instructor`
 
-Sample admin credentials are available upon request (the application has an active formspree link in the footer for just such an occasion)
+* Sample admin credentials:
 
-# Features:
-
-Single page app format which renders one of four possible interfaces
+  - by request only
