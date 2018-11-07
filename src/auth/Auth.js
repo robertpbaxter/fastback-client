@@ -47,7 +47,7 @@ class Auth extends Component {
               </p>
             )}
             {this.state.instructorSignup && ( // The accompanying component's default state is hidden
-              <div>
+              <div className="text-center">
                 <hr />
                 <p onClick={this.toggleInstructions}>
                   To receive credentials as an instructor, create an account as

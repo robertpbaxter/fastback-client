@@ -67,14 +67,22 @@ class Login extends Component {
             <div className="text-center">
               <h1>Fastback</h1>
               <h3>Mobile feedback</h3>
+              <hr />
+              <p>
+                Welcome to my full stack app for students and instructors to
+                communicate 'fast feedback.'
+              </p>{" "}
+              <p>
+                Feel free to check the readme file in my{" "}
+                <a
+                  href="https://github.com/robertpbaxter/fastback-client"
+                  target="_blank"
+                >
+                  Github Repository
+                </a>{" "}
+                for features and sample login credentials!
+              </p>{" "}
             </div>
-            <hr />
-            Welcome to my full stack app for students and instructors to
-            communicate 'fast feedback.' Feel free to check out my{" "}
-            <a href="https://github.com/robertpbaxter/fastback-client">
-              Github Repository
-            </a>{" "}
-            for more information about the code itself!
             <hr />
             <h1>Log in</h1>
             <Form onSubmit={this.handleSubmit}>
