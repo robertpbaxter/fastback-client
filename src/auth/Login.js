@@ -69,6 +69,13 @@ class Login extends Component {
               <h3>Mobile feedback</h3>
             </div>
             <hr />
+            Welcome to my full stack app for students and instructors to
+            communicate 'fast feedback.' Feel free to check out my{" "}
+            <a href="https://github.com/robertpbaxter/fastback-client">
+              Github Repository
+            </a>{" "}
+            for more information about the code itself!
+            <hr />
             <h1>Log in</h1>
             <Form onSubmit={this.handleSubmit}>
               <FormGroup>
