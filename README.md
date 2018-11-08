@@ -10,7 +10,7 @@ Back-end repository: https://github.com/robertpbaxter/fastback-server
 
 - Single page app format with a central switch statement that renders one of four possible interfaces:
 
-  - Public: A login/signup interface
+  - Public: A login/signup interface using JSON web tokens
   - Student: A list of assignments (by instructor) with inputs for submitting responses and a grade value if (assigned)
   - Instructions: A table of assignments (create, edit, delete) with modal for fetching student submissions and assigning grades
   - Admins: A list of all users for assigning upgrading user credentials (for assigning new instructors) or deleting users
