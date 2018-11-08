@@ -2,9 +2,9 @@
 
 This repo represents the front end React application created by Robert Baxter of Eleven Fifty Academy. This half of a full stack project was submitted on week 8 in completion of the Blue Badge phase of Eleven Fifty's JavaScript boot camp.
 
-View the deployed application (in its current state) at <a href="https://fastback-mobile-feedback.herokuapp.com">https://fastback-mobile-feedback.herokuapp.com</a>
+View the deployed application (in its current state) at https://fastback-mobile-feedback.herokuapp.com
 
-Back-end repository: <a href="https://github.com/robertpbaxter/fastback-server">https://github.com/robertpbaxter/fastback-server</a>
+Back-end repository: https://github.com/robertpbaxter/fastback-server
 
 # Features:
 
